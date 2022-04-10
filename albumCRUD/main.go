@@ -26,10 +26,10 @@ var albums = []album{
 // assign the handler function to an endpoint path.
 func main() {
 	router := gin.Default()
-	router.GET("/albums", getAlbums)
-	router.GET("/albums/:id", getAlbumByID)
-	router.POST("/album", postAlbums)
-	router.PUT("/albums", putAlbumList)
+	router.GET("/getAlbums", getAlbums)
+	router.GET("/getAlbumByID/:id", getAlbumByID)
+	router.POST("/postAlbums", postAlbums)
+	router.PUT("/putAlbumList", putAlbumList)
 
 	router.Run("localhost:8080") // default port : 3000기본
 }
