@@ -31,7 +31,28 @@ func main() {
 	router.POST("/postAlbums", postAlbums)
 	router.PUT("/putAlbumList", putAlbumList)
 
+	router.LoadHTMLGlob("albumCRUD/templates/*")
+	//router.LoadHTMLFiles("web/templates/*")
+	//router.SetHTMLTemplate()
+	router.GET("/", getIndex)
 	router.Run("localhost:8080") // default port : 3000기본
+}
+func getIndex(c *gin.Context) {
+	//// Use a service account
+	//ctx := c.Background()
+	//sa := option.WithCredentialsFile("path/to/serviceAccount.json")
+	//app, err := firebase.NewApp(ctx, nil, sa)
+	//if err != nil {
+	//	log.Fatalln(err)
+	//}
+	//
+	//client, err := app.Database(c)
+	//if err != nil {
+	//	log.Fatalln("Error initializing database client:", err)
+	//}
+	//ref := client.NewRef("server/saving-data/fireblog")
+	println("getIndex function")
+	c.HTML(http.StatusOK, "index.html", gin.H{"title": "Home Page"})
 }
 
 // getAlbums responds with the list of all albums as JSON.
